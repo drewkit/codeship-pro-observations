@@ -1,0 +1,13 @@
+- name: html encode arg issue
+  type: serial
+  tag: html-encode-arg-issue
+  steps:
+  - name: desired value
+    service: html-encode-arg-issue
+    command: cat desired_value.txt
+  - name: actual value
+    service: html-encode-arg-issue
+    command: cat value_passed_from_build_arg.txt
+  - name: issue resolved?
+    service: html-encode-arg-issue
+    command: cmp value_passed_from_build_arg.txt desired_value.txt

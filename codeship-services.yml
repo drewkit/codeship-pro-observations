@@ -1,0 +1,7 @@
+html-encode-arg-issue:
+  build:
+    context: ./html-encode-arg-issue/
+    dockerfile: Dockerfile
+    image: dkcodeship/html-encode-arg-issue
+    args:
+      MYARG: <?xml version="1.0" encoding="UTF-8"?>
