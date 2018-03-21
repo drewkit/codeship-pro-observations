@@ -11,3 +11,8 @@
   - name: issue resolved?
     service: html-encode-arg-issue
     command: cmp value_passed_from_build_arg.txt desired_value.txt
+
+- name: issue with handling yaml anchors
+  command: true
+  tag: issue-with-handling-yaml-anchors
+  service: issue-with-yaml-anchors-app

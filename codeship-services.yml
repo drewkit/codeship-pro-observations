@@ -5,3 +5,14 @@ html-encode-arg-issue:
     image: dkcodeship/html-encode-arg-issue
     args:
       MYARG: <?xml version="1.0" encoding="UTF-8"?>
+
+issue-with-yaml-anchors-app-base: &app-base
+  build:
+    dockerfile: Dockerfile
+    image: dkcodeship/will-be-overridden
+
+issue-with-yaml-anchors-app:
+  <<: *app-base
+  build:
+    dockerfile: Dockerfile
+    image: dkcodeship/yaml-anchored-app
