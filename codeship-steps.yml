@@ -2,12 +2,22 @@
   type: serial
   tag: html-encode-arg-issue
   steps:
-  - name: desired value
-    service: html-encode-arg-issue
-    command: cat desired_value.txt
-  - name: actual value
-    service: html-encode-arg-issue
-    command: cat value_passed_from_build_arg.txt
-  - name: issue resolved?
-    service: html-encode-arg-issue
-    command: cmp value_passed_from_build_arg.txt desired_value.txt
+    - name: desired value
+      service: html-encode-arg-issue
+      command: cat desired_value.txt
+    - name: actual value
+      service: html-encode-arg-issue
+      command: cat value_passed_from_build_arg.txt
+    - name: issue resolved?
+      service: html-encode-arg-issue
+      command: cmp value_passed_from_build_arg.txt desired_value.txt
+- name: env vars ignored
+  type: serial
+  tag: env-vars-quotation-handling
+  steps:
+    - name: env var without quotation handling
+      service: env-vars-quotation-handling
+      command: /bin/bash -xc "[ $CLOUDBEES_CO_OFFICE == 'Louisville' ]"
+    - name: env var from env file with single quotes on 'San Jose'
+      service: env-vars-quotation-handling
+      command: /bin/bash -xc "[ $CLOUDBEES_HEADQUARTERS == 'San Jose' ]"
