@@ -5,3 +5,9 @@ html-encode-arg-issue:
     image: dkcodeship/html-encode-arg-issue
     args:
       MYARG: <?xml version="1.0" encoding="UTF-8"?>
+
+env-vars-quotation-handling:
+  image: ubuntu
+  env_file: ./env-vars-ignored/env-vars-quotation-handling
+  environment:
+    - CLOUDBEES_CO_OFFICE=Louisville
