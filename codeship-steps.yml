@@ -11,7 +11,7 @@
     - name: issue resolved?
       service: html-encode-arg-issue
       command: cmp value_passed_from_build_arg.txt desired_value.txt
-- name: env vars ignored
+- name: quotation wrapping of env var values
   type: serial
   tag: env-vars-quotation-handling
   steps:
