@@ -8,6 +8,6 @@ html-encode-arg-issue:
 
 env-vars-quotation-handling:
   image: ubuntu
-  env_file: ./env-vars-ignored/env-vars-quotation-handling
+  env_file: ./env-vars-quotation-handling/env-vars
   environment:
     - CLOUDBEES_CO_OFFICE=Louisville
