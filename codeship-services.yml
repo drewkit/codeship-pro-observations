@@ -11,3 +11,9 @@ env-vars-quotation-handling:
   env_file: ./env-vars-quotation-handling/env-vars
   environment:
     - CLOUDBEES_CO_OFFICE=Louisville
+
+git-context-check:
+  build:
+    dockerfile: Dockerfile.git-context-check
+    image: dkcodeship/git-context-check
+  cached: true

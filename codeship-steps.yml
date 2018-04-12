@@ -21,3 +21,7 @@
     - name: env var from env file with single quotes on 'San Jose'
       service: env-vars-quotation-handling
       command: /bin/bash -xc "[ $CLOUDBEES_HEADQUARTERS == 'San Jose' ]"
+- name: check for a git context in the Codeship Pro build
+  service: git-context-check
+  tag: git-context-check
+  command: git status
