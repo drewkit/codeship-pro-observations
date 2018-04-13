@@ -31,7 +31,7 @@
     - name: how to get to master branch
       type: serial
       steps:
-        - command: /bin/bash -c 'ssh-keyscan -H github.com >> /etc/ssh/ssh_known_hosts'
+        - command: /bin/bash -c 'ssh-keyscan -H github.com >> /etc/ssh/known_hosts'
         - command: git reset --hard
         - command: git remote update
         - command: git fetch
