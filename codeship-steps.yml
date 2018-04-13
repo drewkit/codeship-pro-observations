@@ -31,7 +31,8 @@
     - name: how to get to master branch
       type: serial
       steps:
-        - command: git remote -v
-        - command: git fetch origin
+        - command: git remote show origin
+        - command: git remote update
+        - command: git fetch
         - name: checkout master branch
           command: git checkout -b master origin/master
