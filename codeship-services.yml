@@ -18,5 +18,5 @@ git-context-check:
     image: dkcodeship/git-context-check
   volumes:
     - ./.git:/app/.git
-    - ./git-context-check/tmp/ssh:/etc/ssh/
+    - ./git-context-check/tmp/ssh:/root/.ssh/
   cached: true
