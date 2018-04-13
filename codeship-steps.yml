@@ -21,7 +21,19 @@
     - name: env var from env file with single quotes on 'San Jose'
       service: env-vars-quotation-handling
       command: /bin/bash -xc "[ $CLOUDBEES_HEADQUARTERS == 'San Jose' ]"
-- name: check for a git context in the Codeship Pro build
+- name: Git context in Codeship Pro build
   service: git-context-check
   tag: git-context-check
-  command: git status
+  type: serial
+  steps:
+  - name: check for a git context in the Codeship Pro build
+    command: git status
+  - name: how to get to master branch # https://community.codeship.com/t/how-to-get-git-master-branch/6101
+    type: serial
+    steps:
+    - name: fetch remote origin branches
+      command: git config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
+    - name: unshallow the branch
+      command: /bin/bash -c 'git fetch --unshallow || true'
+    - name: checkout master branch
+      command: git checkout -b master origin/master

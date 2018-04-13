@@ -16,4 +16,6 @@ git-context-check:
   build:
     dockerfile: Dockerfile.git-context-check
     image: dkcodeship/git-context-check
+  volumes:
+    - ./.git:/app/.git
   cached: true
