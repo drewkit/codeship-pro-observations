@@ -31,9 +31,7 @@
   - name: how to get to master branch # https://community.codeship.com/t/how-to-get-git-master-branch/6101
     type: serial
     steps:
-    - name: fetch remote origin branches
+    - name: fetch remote branches
       command: git config remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
-    - name: unshallow the branch
-      command: /bin/bash -c 'git fetch --unshallow || true'
     - name: checkout master branch
       command: git checkout -b master origin/master
