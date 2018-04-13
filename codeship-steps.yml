@@ -32,7 +32,6 @@
       type: serial
       steps:
         - command: git reset --hard
-        - command: git remote show origin
         - command: git remote update
         - command: git fetch
         - name: checkout master branch
