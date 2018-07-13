@@ -11,3 +11,28 @@ env-vars-quotation-handling:
   env_file: ./env-vars-quotation-handling/env-vars
   environment:
     - CLOUDBEES_CO_OFFICE=Louisville
+
+multiple-env-sources:
+  image: busybox
+  environment:
+    - seattle=wa
+  env_file: ./multiple-env-sources/env_one
+  encrypted_env_file: ./multiple-env-sources/different_env.encrypted
+
+multiple-env-sources-with-overlap:
+  image: busybox
+  environment:
+    - seattle=wa
+    - portland=ma
+  env_file: ./multiple-env-sources/env_one
+  encrypted_env_file: ./multiple-env-sources/different_env.encrypted
+
+multiple-env-sources-with-multiple-files:
+  image: busybox
+  environment:
+    - seattle=wa
+    - portland=ma
+  env_file:
+    - ./multiple-env-sources/env_one
+    - ./multiple-env-sources/env_two
+  encrypted_env_file: ./multiple-env-sources/different_env.encrypted

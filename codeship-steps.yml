@@ -21,3 +21,22 @@
     - name: env var from env file with single quotes on 'San Jose'
       service: env-vars-quotation-handling
       command: /bin/bash -xc "[ $CLOUDBEES_HEADQUARTERS == 'San Jose' ]"
+- name: multiple env sources
+  type: serial
+  tag: multiple-env-sources
+  steps:
+    - name: from services file
+      service: multiple-env-sources
+      command: /bin/sh -c 'if [ $seattle = "wa" ]; then true; else false; fi'
+    - name: from plaintext file
+      service: multiple-env-sources
+      command: /bin/sh -c 'if [ $san_francisco = "ca" ]; then true; else false; fi'
+    - name: from encrypted file
+      service: multiple-env-sources
+      command: /bin/sh -c 'if [ $portland = "or" ]; then true; else false; fi'
+    - name: encrypted > services
+      service: multiple-env-sources-with-overlap
+      command: /bin/sh -c 'if [ $portland = "or" ]; then true; else false; fi'
+    - name: multiple env sources with multiple env files
+      service: multiple-env-sources-with-multiple-files
+      command: /bin/sh -c 'echo $env_one && echo $env_two'
