@@ -17,7 +17,7 @@ multiple-env-sources:
   environment:
     - seattle=wa
   env_file: ./multiple-env-sources/env_one
-  encrypted_env_file: ./multiple-env-sources/different_env.encrypted
+  encrypted_env_file: ./multiple-env-sources/a.encrypted
 
 multiple-env-sources-with-overlap:
   image: busybox
@@ -25,7 +25,7 @@ multiple-env-sources-with-overlap:
     - seattle=wa
     - portland=ma
   env_file: ./multiple-env-sources/env_one
-  encrypted_env_file: ./multiple-env-sources/different_env.encrypted
+  encrypted_env_file: ./multiple-env-sources/a.encrypted
 
 multiple-env-sources-with-multiple-files:
   image: busybox
@@ -35,4 +35,6 @@ multiple-env-sources-with-multiple-files:
   env_file:
     - ./multiple-env-sources/env_one
     - ./multiple-env-sources/env_two
-  encrypted_env_file: ./multiple-env-sources/different_env.encrypted
+  encrypted_env_file:
+    - ./multiple-env-sources/a.encrypted
+    - ./multiple-env-sources/b.encrypted

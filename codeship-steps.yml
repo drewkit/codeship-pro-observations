@@ -40,3 +40,6 @@
     - name: multiple env sources with multiple env files
       service: multiple-env-sources-with-multiple-files
       command: /bin/sh -c 'echo $env_one && echo $env_two'
+    - name: multiple encrypted sources
+      service: multiple-env-sources-with-multiple-files
+      command: /bin/sh -c 'echo hello ${WORLD}!'
